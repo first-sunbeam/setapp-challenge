@@ -1,16 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { SongsListComponent } from './songs/songs-list/songs-list.component';
+import { SongsItemComponent } from './songs/songs-item/songs-item.component';
+import { SongsListService } from './services/songs-list.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SongsListComponent,
+    SongsItemComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [SongsListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
