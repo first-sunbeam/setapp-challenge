@@ -4,10 +4,10 @@ import { Song } from '../../services/songs.model';
 
 @Component({
   selector: 'app-songs-item',
-  templateUrl: './songs-item.component.html',
-  styleUrls: ['./songs-item.component.css']
+  templateUrl: './song-detail.component.html',
+  styleUrls: ['./song-detail.component.css']
 })
-export class SongsItemComponent implements OnInit {
+export class SongDetailComponent implements OnInit {
   selectedSong: Song;
   constructor(private songs: SongsListService) { }
 

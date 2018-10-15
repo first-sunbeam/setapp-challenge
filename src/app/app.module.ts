@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { SongsListComponent } from './songs/songs-list/songs-list.component';
-import { SongsItemComponent } from './songs/songs-item/songs-item.component';
+import { SongDetailComponent } from './songs/song-detail/song-detail.component';
 import { SongsListService } from './services/songs-list.service';
 import { Songs } from './services/songs.model';
 
@@ -12,7 +12,7 @@ import { Songs } from './services/songs.model';
   declarations: [
     AppComponent,
     SongsListComponent,
-    SongsItemComponent
+    SongDetailComponent
   ],
   imports: [
     BrowserModule,
