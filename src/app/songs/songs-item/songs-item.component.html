@@ -1,3 +1,8 @@
-<p>
-  songs-item works!
-</p>
+<ul *ngIf="selectedSong">
+  <li>{{ selectedSong.name }}</li>
+  <li>{{ selectedSong.artist }}</li>
+  <li><img [src]="selectedSong.image['170']" alt="{{ selectedSong.name }}"></li>
+  <li>{{ selectedSong.price }}</li>
+  <li>{{ selectedSong.category }}</li>
+  <li>{{ selectedSong.releaseDate }}</li>
+</ul>

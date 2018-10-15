@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SongsListService } from '../../services/songs-list.service';
+import { Song } from '../../services/songs.model';
 
 @Component({
   selector: 'app-songs-item',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./songs-item.component.css']
 })
 export class SongsItemComponent implements OnInit {
-
-  constructor() { }
+  selectedSong: Song;
+  constructor(private songs: SongsListService) { }
 
   ngOnInit() {
+    this.songs.songSelected.subscribe(
+      (song: Song) => {
+        this.selectedSong = song;
+      }
+    );
   }
 
 }

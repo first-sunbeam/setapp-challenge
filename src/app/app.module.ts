@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SongsListComponent } from './songs/songs-list/songs-list.component';
 import { SongsItemComponent } from './songs/songs-item/songs-item.component';
 import { SongsListService } from './services/songs-list.service';
+import { Songs } from './services/songs.model';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,10 @@ import { SongsListService } from './services/songs-list.service';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [SongsListService],
+  providers: [
+    SongsListService,
+    Songs
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

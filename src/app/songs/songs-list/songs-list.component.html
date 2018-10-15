@@ -1,5 +1,8 @@
-<p>
-  songs-list works!
-</p>
-
-<app-songs-item></app-songs-item>
+<ul>
+  <li *ngFor="let song of songsList"
+    (click)="onSongSelected(song)">
+    {{ song.name }}
+    {{ song.artist }}
+    <img [src]="song.image['55']" alt="{{ song.name }}">
+  </li>
+</ul>

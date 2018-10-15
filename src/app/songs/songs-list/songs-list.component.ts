@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SongsListService } from '../../services/songs-list.service';
+import { Song } from '../../services/songs.model';
 
 @Component({
   selector: 'app-songs-list',
@@ -7,8 +8,9 @@ import { SongsListService } from '../../services/songs-list.service';
   styleUrls: ['./songs-list.component.css']
 })
 export class SongsListComponent implements OnInit {
-  public songsList: any;
+  public songsList:  Song[] = [];
   public requestError: any;
+  @Input() song: Song;
 
   constructor(private songs: SongsListService) { }
 
@@ -30,5 +32,9 @@ export class SongsListComponent implements OnInit {
 
   protected handleError (error: any) {
     return this.requestError = error;
+  }
+
+  onSongSelected(song: Song) {
+    this.songs.songSelected.emit(song);
   }
 }
