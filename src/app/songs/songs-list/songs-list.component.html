@@ -1,8 +1,10 @@
-<ul>
-  <li *ngFor="let song of songsList"
-    (click)="onSongSelected(song)">
-    {{ song.name }}
-    {{ song.artist }}
-    <img [src]="song.image['55']" alt="{{ song.name }}">
-  </li>
-</ul>
+<table class="table table-striped table-hover">
+  <tbody>
+  <tr *ngFor="let song of songsList; let odd = odd"
+      (click)="onSongSelected(song)"
+      [ngClass]="{ odd: active }">
+    <td> <img [src]="song.image['55']" alt="{{ song.name }}"></td>
+    <td>{{ song.name }} <br><small>{{ song.artist }}</small></td>
+  </tr>
+  </tbody>
+</table>

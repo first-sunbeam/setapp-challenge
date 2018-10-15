@@ -15,7 +15,7 @@ export class SongsListComponent implements OnInit {
   constructor(private songs: SongsListService) { }
 
   ngOnInit() {
-    this.getSongs(5);
+    this.getSongs(50);
   }
 
   getSongs(limit: number) {

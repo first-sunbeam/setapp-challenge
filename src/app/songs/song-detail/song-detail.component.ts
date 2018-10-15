@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SongsListService } from '../../services/songs-list.service';
 import { Song } from '../../services/songs.model';
+import {selectValueAccessor} from '@angular/forms/src/directives/shared';
 
 @Component({
   selector: 'app-songs-item',
@@ -17,6 +18,10 @@ export class SongDetailComponent implements OnInit {
         this.selectedSong = song;
       }
     );
+  }
+
+  onModalClose() {
+    this.songs.songSelected.emit(null);
   }
 
 }

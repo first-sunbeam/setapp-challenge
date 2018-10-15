@@ -1,8 +1,31 @@
-<ul *ngIf="selectedSong">
-  <li>{{ selectedSong.name }}</li>
-  <li>{{ selectedSong.artist }}</li>
-  <li><img [src]="selectedSong.image['170']" alt="{{ selectedSong.name }}"></li>
-  <li>{{ selectedSong.price }}</li>
-  <li>{{ selectedSong.category }}</li>
-  <li>{{ selectedSong.releaseDate }}</li>
-</ul>
+<div *ngIf="selectedSong"
+     class="modal active"
+     id="modal-id">
+  <div class="modal-container">
+    <div class="modal-header">
+      <a href="#close"
+         class="btn btn-clear float-right"
+         aria-label="Close"
+         (click)="onModalClose()"></a>
+    </div>
+    <div class="modal-body">
+      <div class="content">
+            <div class="columns">
+              <div class="column col-5 col-xs-12 text-center">
+                <img [src]="selectedSong.image['170']" alt="{{ selectedSong.name }}">
+              </div>
+              <div class="column col-7 col-xs-12">
+                  <h4 class="text-dark">
+                    {{ selectedSong.name }}
+                    <br>
+                    <small class="label"> {{ selectedSong.artist }} </small>
+                  </h4>
+                  <label class="label mx-1 label-rounded label-secondary">{{ selectedSong.price }}</label>
+                  <label class="label mx-1 label-rounded label-secondary">{{ selectedSong.category }}</label>
+                  <label class="label mx-1 label-rounded label-secondary">{{ selectedSong.releaseDate }}</label>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
