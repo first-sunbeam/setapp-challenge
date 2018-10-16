@@ -9,6 +9,7 @@ import { SongsListService } from './services/songs-list.service';
 import { Songs } from './services/songs.model';
 import { SearchFilterPipe } from './shared/filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     SongsListService,
