@@ -1,16 +1,16 @@
 <header>
   <div class="fixed navbar">
     <section class="navbar-section">
+      <div class="input-group input-inline">
+        <input class="form-input" type="text" placeholder="search"  [(ngModel)]="searchText">
+      </div>
+    </section>
+    <section class="navbar-section">
       <label *ngFor="let limit of [100, 10, 5, 2]"
              (click)="onLimitChange(limit)"
              class="label label-primary mx-1 label-rounded c-hand">
         {{ limit }}
       </label>
-    </section>
-    <section class="navbar-section">
-      <div class="input-group input-inline">
-        <input class="form-input" type="text" placeholder="search"  [(ngModel)]="searchText">
-      </div>
     </section>
   </div>
 </header>
