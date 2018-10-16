@@ -7,16 +7,20 @@ import { SongsListComponent } from './songs/songs-list/songs-list.component';
 import { SongDetailComponent } from './songs/song-detail/song-detail.component';
 import { SongsListService } from './services/songs-list.service';
 import { Songs } from './services/songs.model';
+import { SearchFilterPipe } from './shared/filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     SongsListComponent,
-    SongDetailComponent
+    SongDetailComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     SongsListService,

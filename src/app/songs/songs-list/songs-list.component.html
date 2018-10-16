@@ -1,6 +1,23 @@
+<header>
+  <div class="fixed navbar">
+    <section class="navbar-section">
+      <label *ngFor="let limit of [100, 10, 5, 2]"
+             (click)="onLimitChange(limit)"
+             class="label label-primary mx-1 label-rounded c-hand">
+        {{ limit }}
+      </label>
+    </section>
+    <section class="navbar-section">
+      <div class="input-group input-inline">
+        <input class="form-input" type="text" placeholder="search"  [(ngModel)]="searchText">
+      </div>
+    </section>
+  </div>
+</header>
+
 <table class="table table-striped table-hover">
   <tbody>
-  <tr *ngFor="let song of songsList; let odd = odd"
+  <tr *ngFor="let song of (songsList | searchfilter: searchText); let odd = odd"
       (click)="onSongSelected(song)"
       [ngClass]="{ odd: active }">
     <td> <img [src]="song.image['55']" alt="{{ song.name }}"></td>

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, SimpleChanges} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { SongsListService } from '../../services/songs-list.service';
 import { Song } from '../../services/songs.model';
 
@@ -7,11 +7,12 @@ import { Song } from '../../services/songs.model';
   templateUrl: './songs-list.component.html',
   styleUrls: ['./songs-list.component.scss']
 })
-export class SongsListComponent implements OnInit, OnChanges {
+export class SongsListComponent implements OnInit {
   public songsList:  Song[] = [];
   public requestError: any;
+  public searchText = '';
+  public songLimit = 5 ;
   @Input() song: Song;
-  @Input() songLimit: number;
 
   constructor(private songs: SongsListService) { }
 
@@ -19,14 +20,10 @@ export class SongsListComponent implements OnInit, OnChanges {
     this.getSongs(this.songLimit);
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    const guard = changes.songLimit &&
-      changes.songLimit.previousValue !== changes.songLimit.currentValue &&
-      !changes.songLimit.firstChange;
-
-    if (guard) {
-      this.getSongs(changes.songLimit.currentValue);
-    }
+  onLimitChange(limit: number) {
+    if (limit === this.songLimit) { return; }
+    this.songLimit = limit;
+    this.getSongs(limit);
   }
 
   getSongs(limit: number) {

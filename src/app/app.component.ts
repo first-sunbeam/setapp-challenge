@@ -5,10 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  songLimit = 5;
-
-  onLimitChange(newLimit) {
-    this.songLimit = newLimit;
-  }
-}
+export class AppComponent { }
