@@ -2,6 +2,7 @@ export class Songs {
   private list: Song[] = [];
 
   public deserialize(entries) {
+    this.list = [];
     entries.forEach(entry => {
       const song: Song = {
         name: entry['im:name'].label,

@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'setapp-challenge';
+  songLimit = 5;
+
+  onLimitChange(newLimit) {
+    this.songLimit = newLimit;
+  }
 }

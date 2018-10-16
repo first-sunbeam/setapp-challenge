@@ -1,21 +1,32 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, SimpleChanges} from '@angular/core';
 import { SongsListService } from '../../services/songs-list.service';
 import { Song } from '../../services/songs.model';
 
 @Component({
   selector: 'app-songs-list',
   templateUrl: './songs-list.component.html',
-  styleUrls: ['./songs-list.component.css']
+  styleUrls: ['./songs-list.component.scss']
 })
-export class SongsListComponent implements OnInit {
+export class SongsListComponent implements OnInit, OnChanges {
   public songsList:  Song[] = [];
   public requestError: any;
   @Input() song: Song;
+  @Input() songLimit: number;
 
   constructor(private songs: SongsListService) { }
 
   ngOnInit() {
-    this.getSongs(50);
+    this.getSongs(this.songLimit);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const guard = changes.songLimit &&
+      changes.songLimit.previousValue !== changes.songLimit.currentValue &&
+      !changes.songLimit.firstChange;
+
+    if (guard) {
+      this.getSongs(changes.songLimit.currentValue);
+    }
   }
 
   getSongs(limit: number) {
